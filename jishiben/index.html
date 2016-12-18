@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 引入 jQuery Mobile 样式 -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <!-- 引入 jQuery 库 -->
+    <script src="js/jquery-1.11.1.js"></script>
+    <!-- 引入 jQuery Mobile 库 -->
+    <script>
+        $(document).bind("mobileinit", function() {
+            //disable ajax nav
+            $.mobile.ajaxEnabled=false
+        });
+    </script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body id="body">
+<!--封面开始-->
+<div data-role="page" id="fenmian">
+    <div data-role="content">
+        <img src="img/logo.png" id="pic">
+        <p id="p1">随时随地，随心而记</p>
+        <p id="p2">但愿每次回忆，对生活都不感到负疚</p>
+        <p id="p3">记录你想记住的所有美好</p>
+        <div id="foot">
+            <a href="#zhuce" data-role="button"  id="crea">注册</a>
+            <a href="#denglu" data-role="button" id="to">登陆</a>
+        </div>
+    </div>
+</div>
+<!--封页面结束-->
+    <!--注册页面开始-->
+    <div data-role="page" id="zhuce">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>欢迎注册</h1>
+        </div>
+        <div data-role="content">
+            <input type="text" class="title" id="yhm" placeholder="用户名...">
+            <div id="ltr1">用户名9~12位,必须字母开头,不能有特殊符号、空格、中文!</div>
+            <input type="password" id="mm" placeholder="密码...">
+            <div id="ltr2">密码长度在6~12位,只能包含字符、数字和下划线!</div>
+            <input type="password" id="rmm" placeholder="重复密码...">
+            <div id="ltr3"></div>
+            <input type="text" id="lxfs" placeholder="联系方式">
+            <div id="ltr4"></div>
+            <!--<a href="" data-role="button"  id="zhc">注册</a>-->
+            <button data-role="button"  id="zhc">注册</button>
+            <a href="#denglu" data-role="button"  id="dengl">登陆</a>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--注册页面结束-->
+    <!--登陆页面开始-->
+    <div data-role="page" id="denglu">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>欢迎登陆</h1>
+        </div>
+        <div data-role="content">
+            <input type="text" class="title" id="dyhm" placeholder="用户名...">
+            <div id="dtr1"></div>
+            <input type="password" id="dmm" placeholder="密码...">
+            <div id="dtr2"></div>
+            <button data-role="button"  id="dl">登陆</button>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--登陆页面结束-->
+    <!--记事本首页开始-->
+    <div data-role="page" id="page1">
+        <div data-role="header"  style="background:#FF9F49;color:#749CC3;text-shadow:none" data-shadow=”false” data-corners=”false”>
+            <h1>记事本</h1>
+            <p class="ui-btn-left"><span id="yh"></span></p>
+            <a href="#page2" data-role="button" class="ui-btn-right"  data-theme="b">新增</a>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li  style="background:#749CC3;color: #fff;">全部记事本内容<span class="ui-li-count" id="s1">0</span></li>
+                <li><a href="#page-rc">日常事记<span class="ui-li-count" id="s2">0</span></a></li>
+                <li><a href="#page-hy">重要会议<span class="ui-li-count" id="s3">0</span></a></li>
+                <li><a href="#page-sw">散文<span class="ui-li-count" id="s4">0</span></a></li>
+                <li><a href="#page-sb">随笔<span class="ui-li-count" id="s5">0</span></a></li>
+                <li><a href="#page-qt">其他<span class="ui-li-count" id="s6">0</span></a></li>
+            </ul>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <a href="#denglu" data-role="button" class="ui-btn-right" data-theme="b" id="out">退出</a>
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--记事本首页结束-->
+    <!--增加事记开始-->
+    <div data-role="page" id="page2">
+        <div data-role="header"  style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>增加事记</h1>
+            <a href="#page1" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+            <a href="#" data-role="button" class="ui-btn-right" data-theme="b" id="cun">保存</a>
+        </div>
+        <div data-role="content">
+            <label>类型：</label>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#" data-role="button" id="btn1">日常事记</a>
+                <a href="#" data-role="button" id="btn2">重要会议</a>
+                <a href="#" data-role="button" id="btn3">散文</a>
+				</br>
+                <a href="#" data-role="button" id="btn4">随笔</a>
+                <a href="#" data-role="button" id="btn5">其他</a>
+            </div>
+            <label for="biaot">标题：</label>
+            <input type="text" class="title" id="biaot">
+            <label for="zhengwen">正文：</label>
+            <textarea type="text" id="zhengwen"></textarea>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--增加事记结束-->
+    <!--日常事记开始-->
+    <div data-role="page" id="page-rc">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>事记列表</h1>
+            <a href="#page1" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+            <a href="#page2" data-role="button" class="ui-btn-right" data-theme="b">新增</a>
+        </div>
+        <div data-role="content">
+            <form class="ui-filterable">
+                <input id="search1" data-type="search" placeholder="搜索事记...">
+            </form>
+            <ul data-role="listview" data-inset="true" data-icon="false" id="sjlb1" data-filter="true" data-input="#search1">
+                <li style="background:#749CC3;color: #fff;" class="ui-li-static ui-body-inherit ui-li-has-count ui-first-child" id="li1">日常事记<span class="ui-li-count ui-body-inherit" id="shu1">0</span></li>
+            </ul>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--日常事记结束-->
+    <!--重要会议开始-->
+    <div data-role="page" id="page-hy">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>事记列表</h1>
+            <a href="#page1" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+            <a href="#page2" data-role="button" class="ui-btn-right" data-theme="b">新增</a>
+        </div>
+        <div data-role="content">
+            <form class="ui-filterable">
+                <input id="search2" data-type="search" placeholder="搜索事记...">
+            </form>
+            <ul data-role="listview" data-inset="true" data-icon="false" id="sjlb2" data-filter="true" data-input="#search2">
+                <li style="background:#749CC3;color: #fff;" class="ui-li-static ui-body-inherit ui-li-has-count ui-first-child" id="li2">重要会议<span class="ui-li-count ui-body-inherit" id="shu2">0</span></li>
+            </ul>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--重要会议结束-->
+    <!--散文开始-->
+    <div data-role="page" id="page-sw">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>事记列表</h1>
+            <a href="#page1" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+            <a href="#page2" data-role="button" class="ui-btn-right" data-theme="b">新增</a>
+        </div>
+        <div data-role="content">
+            <form class="ui-filterable">
+                <input id="search3" data-type="search" placeholder="搜索事记...">
+            </form>
+            <ul data-role="listview" data-inset="true" data-icon="false" id="sjlb3" data-filter="true" data-input="#search3">
+                <li style="background:#749CC3;color: #fff;" class="ui-li-static ui-body-inherit ui-li-has-count ui-first-child" id="li3">散文<span class="ui-li-count ui-body-inherit" id="shu3">0</span></li>
+            </ul>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--散文结束-->
+    <!--随笔开始-->
+    <div data-role="page" id="page-sb">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>事记列表</h1>
+            <a href="#page1" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+            <a href="#page2" data-role="button" class="ui-btn-right" data-theme="b">新增</a>
+        </div>
+        <div data-role="content">
+            <form class="ui-filterable">
+                <input id="search4" data-type="search" placeholder="搜索事记...">
+            </form>
+            <ul data-role="listview" data-inset="true" data-icon="false" id="sjlb4" data-filter="true" data-input="#search4">
+                <li style="background:#749CC3;color: #fff;" class="ui-li-static ui-body-inherit ui-li-has-count ui-first-child" id="li4">随笔<span class="ui-li-count ui-body-inherit" id="shu4">0</span></li>
+            </ul>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--随笔结束-->
+	<!--其他开始-->
+    <div data-role="page" id="page-qt">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>事记列表</h1>
+            <a href="#page1" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+            <a href="#page2" data-role="button" class="ui-btn-right" data-theme="b">新增</a>
+        </div>
+        <div data-role="content">
+            <form class="ui-filterable">
+                <input id="search5" data-type="search" placeholder="搜索事记...">
+            </form>
+            <ul data-role="listview" data-inset="true" data-icon="false" id="sjlb5" data-filter="true" data-input="#search5">
+                <li style="background:#749CC3;color: #fff;" class="ui-li-static ui-body-inherit ui-li-has-count ui-first-child" id="li5">其他<span class="ui-li-count ui-body-inherit" id="shu5">0</span></li>
+            </ul>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--其他结束-->
+    <!--具体内容开始-->
+    <div data-role="page" id="page4">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1 id="nrbt"></h1>
+            <a href="#page3" data-role="button" class="ui-btn-left" data-theme="b" id="gback">返回</a>
+            <a href="#page5" data-role="button" class="ui-btn-right" data-theme="b" id="xiug">修改</a>
+        </div>
+        <div data-role="content">
+            <h3 style="text-align: center;" id="tit"></h3>
+            <hr/>
+            <div id="con"></div>
+            <a href="#" data-role="button" id="clear" style="background:#A2BCE5;color: #fff;" >删除记事</a>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--具体内容结束-->
+    <!--编辑事记开始-->
+    <div data-role="page" id="page5">
+        <div data-role="header" style="background:#FF9F49;color:#749CC3;text-shadow:none">
+            <h1>编辑事记</h1>
+            <a href="#page1" data-role="button" class="ui-btn-left" data-theme="b" id="back">返回</a>
+            <a href="#page3" data-role="button" class="ui-btn-right" data-theme="b" id="gxin">更新</a>
+        </div>
+        <div data-role="content">
+            <label>类型：</label>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#" data-role="button" class="btn1">日常事记</a>
+                <a href="#" data-role="button" class="btn2">重要会议</a>				
+                <a href="#" data-role="button" class="btn3">散文</a>
+				</br>
+                <a href="#" data-role="button" class="btn4">随笔</a>
+				<a href="#" data-role="button" class="btn5">其他</a>
+            </div>
+            <label for="biaotir">标题：</label>
+            <input type="text" class="title" id="biaotir">
+            <label for="zhengwenr">正文：</label>
+            <textarea type="text" id="zhengwenr"></textarea>
+        </div>
+        <div data-role="footer" style="background:#FF9F49;color:#fff;text-shadow:none" data-position="fixed">
+            <h1>随时随地 随心而记</h1>
+        </div>
+    </div>
+    <!--编辑事记结束-->
+</body>
+</html>
